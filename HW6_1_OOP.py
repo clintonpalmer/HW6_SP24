@@ -1,4 +1,5 @@
 # ChatGPT helped create this code
+# Dr. Smay provided a code templete 
 #region imports
 from scipy.optimize import fsolve
 #endregion
