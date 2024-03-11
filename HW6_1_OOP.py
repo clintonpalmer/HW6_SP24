@@ -1,3 +1,4 @@
+# ChatGPT helped create this code
 #region imports
 from scipy.optimize import fsolve
 #endregion
