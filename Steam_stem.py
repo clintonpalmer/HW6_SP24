@@ -123,6 +123,16 @@ class steam():
 
 # region function definitions
 def main():
+    '''
+        Simulates a steam turbine process with given states and properties.
+        Initializes steam objects for the turbine inlet, turbine exit, state 3, and state 4.
+        - Turbine inlet is defined with pressure and quality (x) information.
+        - Turbine exit is defined with specific entropy (s) obtained from the turbine inlet.
+        - State 3 and state 4 are defined with pressure and enthalpy (h) information.
+        Performs calculations for each steam object using the `calc` method.
+        Prints the properties of each steam state.
+        chatgpt assisted with the development of this function.
+        '''
     inlet=steam(7350,name='Turbine Inlet') #not enough information to calculate
     inlet.x=0.9 #90 percent quality
     inlet.calc()
