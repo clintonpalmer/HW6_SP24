@@ -1,3 +1,4 @@
+# Dr. Jim Smay provided the template for this code.  The template was modified to satisfy problem 2 in HW6
 # region imports
 import numpy as np
 import math
