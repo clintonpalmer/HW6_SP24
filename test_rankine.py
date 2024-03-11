@@ -83,10 +83,10 @@ def main():
     This program uses the Rankine class from the Rankine_stem and steam from Steam_stem to analyze different Rankine
     power cycles.
     It assumes that the turbine and pump act isentropically.
-    
+
     Calculates the cycle efficiencies and output a report for each cycle based on user inputs.
-    
-    
+
+
     :return: None
     '''
     while True:
@@ -102,9 +102,3 @@ def main():
 if __name__ == "__main__":
     main()
 # endregion
-
-
-
-# Execute the function when the script is run directly.
-if __name__ == "__main__":
-    run_rankine_cycles()
