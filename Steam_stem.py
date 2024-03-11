@@ -1,3 +1,4 @@
+# Dr. Jim Smay provided the template to this program. The template has been modified to create this program.
 # region imports
 import numpy as np
 from scipy.interpolate import griddata
