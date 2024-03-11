@@ -56,9 +56,9 @@ class ResistorNetwork():
         :param Txt: [string] the lines of the text file
         :return: a resistor object
         """
-        R = Resistor()#JES MISSING CODE  # instantiate a new resistor object
+        R = Resistor()  # instantiate a new resistor object
         N += 1  # <Resistor> was detected, so move to next line in Txt
-        txt = Txt[N].lower()#JES MISSING code  # retrieve line from Txt and make it lower case using Txt[N].lower()
+        txt = Txt[N].lower()  # retrieve line from Txt and make it lower case using Txt[N].lower()
         while "resistor" not in txt:
             if "name" in txt:
                 R.Name = txt.split('=')[1].strip()
@@ -124,12 +124,12 @@ class ResistorNetwork():
         """
         # need to set the currents to that Kirchoff's laws are satisfied
         num_loops = len(self.Loops)
-        i0 = [1.0, 1.0, 1.0]   #JES MISSING CODE  #define an initial guess for the currents in the circuit
+        i0 = [1.0, 1.0, 1.0]  #define an initial guess for the currents in the circuit
         i = fsolve(self.GetKirchoffVals,i0)
         # print output to the screen
-        print("I1 = {:0.1f}".format(i[0]))
-        print("I2 = {:0.1f}".format(i[1]))
-        print("I3 = {:0.1f}".format(i[2]))
+        print("I1 = {:0.1f} A".format(i[0]))
+        print("I2 = {:0.1f} A".format(i[1]))
+        print("I3 = {:0.1f} A".format(i[2]))
         return i
 
     def GetKirchoffVals(self,i):
@@ -157,8 +157,11 @@ class ResistorNetwork():
     def GetElementDeltaV(self, name):
         """
         Need to retrieve either a resistor or a voltage source by name.
-        :param name:
-        :return:
+        :param name:The name of the circuit element (resistor or voltage source) whose Delta V needs to be retrieved.
+                  This method also considers the reverse of the given name as a valid identifier
+        :return:The voltage difference (Delta V) for the specified element. The value is negative for resistors to adhere to
+             the passive sign convention and positive for voltage sources. If the element is not found, the method does not
+             explicitly return a value, which results in 'None' being returned by default
         """
         for r in self.Resistors:
             if name == r.Name:
@@ -194,8 +197,10 @@ class ResistorNetwork():
     def GetResistorByName(self, name):
         """
         A way to retrieve a resistor object from self.Resistors based on resistor name
-        :param name:
-        :return:
+        :param name: The resistor to be retrieved. The name is case-sensitive and must match exactly the
+                  resistor's name property.
+        :return: The resistor object whose name matches the provided 'name' argument. If no resistor with the
+                       specified name is found within the collection, the method returns None by default.
         """
         for r in self.Resistors:
             if r.Name == name:
@@ -252,14 +257,13 @@ class VoltageSource():
 # region Function Definitions
 def main():
     """
-    This program solves for the unknown currents in the circuit of the homework assignment.
+    This program solves for the unknown currents in the first circuit of the homework assignment.
     :return: nothing
     """
-    Net = ResistorNetwork() # JES MISSING CODE  #Instantiate a resistor network object
+    Net = ResistorNetwork()   #Instantiate a resistor network object
     filename = 'Resistor Network.txt'
-    Net.BuildNetworkFromFile(filename)  # JES MISSING CODE #call the function from Net that builds the resistor network from a text file
+    Net.BuildNetworkFromFile(filename) #call the function from Net that builds the resistor network from a text file
     IVals = Net.AnalyzeCircuit()
-    print(IVals)
 # endregion
 
 # region function calls
