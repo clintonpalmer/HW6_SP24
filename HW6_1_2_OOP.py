@@ -1,4 +1,5 @@
 # ChatGPT was used to create this code
+# Dr. Smay and Ashley helped with this code
 #region imports
 from scipy.optimize import fsolve
 from HW6_1_OOP import ResistorNetwork,Loop,Resistor,VoltageSource
